@@ -1,0 +1,685 @@
+{
+    "info": {
+        "_postman_id": "180dba38-13d5-4460-bc20-62462ed26667",
+        "name": "IMDB App",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": ""
+    },
+    "item": [
+        {
+            "name": "Auth",
+            "item": [
+                {
+                    "name": "/register",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "{{live}}/auth/register",
+                            "path": [
+                                "auth",
+                                "register"
+                            ],
+                            "host": [
+                                "{{live}}"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"name\": \"Raj\",\n  \"email\": \"raj@example.com\",\n  \"password\": \"123\",\n  \"gender\": \"male\"\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "/login",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "{{live}}/auth/login",
+                            "path": [
+                                "auth",
+                                "login"
+                            ],
+                            "host": [
+                                "{{live}}"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"email\": \"raj@example.com\",\n  \"password\": \"123\"\n}"
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "User",
+            "item": [
+                {
+                    "name": "/",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{live}}/users",
+                            "path": [
+                                "users"
+                            ],
+                            "host": [
+                                "{{live}}"
+                            ]
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{token}}",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "/",
+                    "request": {
+                        "method": "PATCH",
+                        "url": {
+                            "raw": "{{local}}/users",
+                            "path": [
+                                "users"
+                            ],
+                            "host": [
+                                "{{local}}"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"email\": \"rituraj@gmail.com\",\n  \"_password\": \"123\",\n  \"_oldPassword\": \"123\"\n}"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{token}}",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "/photo",
+                    "request": {
+                        "method": "PUT",
+                        "url": {
+                            "raw": "{{local}}/users/photo",
+                            "path": [
+                                "users",
+                                "photo"
+                            ],
+                            "host": [
+                                "{{local}}"
+                            ]
+                        },
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "photo",
+                                    "src": "c:\\Users\\ritur\\Pictures\\model3.jpg",
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{token}}",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "/photo",
+                    "request": {
+                        "method": "DELETE",
+                        "url": {
+                            "raw": "{{local}}/users/photo",
+                            "path": [
+                                "users",
+                                "photo"
+                            ],
+                            "host": [
+                                "{{local}}"
+                            ]
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{token}}",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Movie",
+            "item": [
+                {
+                    "name": "/",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{local}}/movies",
+                            "query": [
+                                {
+                                    "key": "limit",
+                                    "value": "1",
+                                    "disabled": true
+                                },
+                                {
+                                    "key": "page",
+                                    "value": "3",
+                                    "disabled": true
+                                },
+                                {
+                                    "key": "search",
+                                    "value": "2",
+                                    "disabled": true
+                                }
+                            ],
+                            "variable": [],
+                            "path": [
+                                "movies"
+                            ],
+                            "host": [
+                                "{{local}}"
+                            ]
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{token}}",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "/:id",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{local}}/movies/0400171c-2ef9-4106-bfd7-bb1f9ee2c4ff",
+                            "path": [
+                                "movies",
+                                "0400171c-2ef9-4106-bfd7-bb1f9ee2c4ff"
+                            ],
+                            "host": [
+                                "{{local}}"
+                            ]
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{token}}",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "/",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "{{local}}/movies",
+                            "path": [
+                                "movies"
+                            ],
+                            "host": [
+                                "{{local}}"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"name\": \"The Mechanic\"\n}"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{token}}",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "/:id",
+                    "request": {
+                        "method": "PATCH",
+                        "url": {
+                            "raw": "{{local}}/movies/1f73f197-71b3-4a52-9104-5ffc539c7de6",
+                            "path": [
+                                "movies",
+                                "1f73f197-71b3-4a52-9104-5ffc539c7de6"
+                            ],
+                            "host": [
+                                "{{local}}"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"name\": \"The Mechanic 2\"\n}"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{token}}",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "/:id",
+                    "request": {
+                        "method": "DELETE",
+                        "url": {
+                            "raw": "{{local}}/movies/1f73f197-71b3-4a52-9104-5ffc539c7de6",
+                            "path": [
+                                "movies",
+                                "1f73f197-71b3-4a52-9104-5ffc539c7de6"
+                            ],
+                            "host": [
+                                "{{local}}"
+                            ]
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{token}}",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "/:id/cover",
+                    "request": {
+                        "method": "PUT",
+                        "url": {
+                            "raw": "{{local}}/movies/0400171c-2ef9-4106-bfd7-bb1f9ee2c4ff/cover",
+                            "path": [
+                                "movies",
+                                "0400171c-2ef9-4106-bfd7-bb1f9ee2c4ff",
+                                "cover"
+                            ],
+                            "host": [
+                                "{{local}}"
+                            ]
+                        },
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "cover",
+                                    "src": "c:\\Users\\ritur\\Desktop\\the-mechanic-2.jpg",
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{token}}",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "/:id/cover",
+                    "request": {
+                        "method": "DELETE",
+                        "url": {
+                            "raw": "{{local}}/movies/1f73f197-71b3-4a52-9104-5ffc539c7de6/cover",
+                            "path": [
+                                "movies",
+                                "1f73f197-71b3-4a52-9104-5ffc539c7de6",
+                                "cover"
+                            ],
+                            "host": [
+                                "{{local}}"
+                            ]
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{token}}",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Rating",
+            "item": [
+                {
+                    "name": "/:movieId",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{local}}/ratings/0400171c-2ef9-4106-bfd7-bb1f9ee2c4ff",
+                            "query": [
+                                {
+                                    "key": "limit",
+                                    "value": "1",
+                                    "disabled": true
+                                },
+                                {
+                                    "key": "page",
+                                    "value": "3",
+                                    "disabled": true
+                                },
+                                {
+                                    "key": "rating",
+                                    "value": "2",
+                                    "disabled": true
+                                }
+                            ],
+                            "variable": [],
+                            "path": [
+                                "ratings",
+                                "0400171c-2ef9-4106-bfd7-bb1f9ee2c4ff"
+                            ],
+                            "host": [
+                                "{{local}}"
+                            ]
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{token}}",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "/",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "{{local}}/ratings",
+                            "query": [
+                                {
+                                    "key": "limit",
+                                    "value": "1",
+                                    "disabled": true
+                                },
+                                {
+                                    "key": "page",
+                                    "value": "3",
+                                    "disabled": true
+                                },
+                                {
+                                    "key": "rating",
+                                    "value": "2",
+                                    "disabled": true
+                                }
+                            ],
+                            "variable": [],
+                            "path": [
+                                "ratings"
+                            ],
+                            "host": [
+                                "{{local}}"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"movie\": \"1f73f197-71b3-4a52-9104-5ffc539c7de6\",\n  \"rating\": 5,\n  \"review\": \"Loved it\"\n}"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{token}}",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "/:id",
+                    "request": {
+                        "method": "PATCH",
+                        "url": {
+                            "raw": "{{local}}/ratings/15c91bf3-6981-4ee9-9df2-b169e58568a7",
+                            "query": [
+                                {
+                                    "key": "limit",
+                                    "value": "1",
+                                    "disabled": true
+                                },
+                                {
+                                    "key": "page",
+                                    "value": "3",
+                                    "disabled": true
+                                },
+                                {
+                                    "key": "rating",
+                                    "value": "2",
+                                    "disabled": true
+                                }
+                            ],
+                            "variable": [],
+                            "path": [
+                                "ratings",
+                                "15c91bf3-6981-4ee9-9df2-b169e58568a7"
+                            ],
+                            "host": [
+                                "{{local}}"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"rating\": 3,\n  \"review\": \"Very good\"\n}"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{token}}",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "/:id",
+                    "request": {
+                        "method": "DELETE",
+                        "url": {
+                            "raw": "{{local}}/ratings/15c91bf3-6981-4ee9-9df2-b169e58568a7",
+                            "query": [
+                                {
+                                    "key": "limit",
+                                    "value": "1",
+                                    "disabled": true
+                                },
+                                {
+                                    "key": "page",
+                                    "value": "3",
+                                    "disabled": true
+                                },
+                                {
+                                    "key": "rating",
+                                    "value": "2",
+                                    "disabled": true
+                                }
+                            ],
+                            "variable": [],
+                            "path": [
+                                "ratings",
+                                "15c91bf3-6981-4ee9-9df2-b169e58568a7"
+                            ],
+                            "host": [
+                                "{{local}}"
+                            ]
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{token}}",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "/files",
+            "request": {
+                "method": "PUT",
+                "url": {
+                    "raw": "https://imdb-app.riturajshakti.workers.dev/api/users/files",
+                    "path": [
+                        "api",
+                        "users",
+                        "files"
+                    ],
+                    "protocol": "https",
+                    "host": [
+                        "imdb-app",
+                        "riturajshakti",
+                        "workers",
+                        "dev"
+                    ]
+                },
+                "header": [
+                    {
+                        "key": "Accept",
+                        "value": "*/*",
+                        "disabled": true
+                    },
+                    {
+                        "key": "User-Agent",
+                        "value": "Thunder Client (https://www.thunderclient.com)",
+                        "disabled": true
+                    }
+                ],
+                "body": {
+                    "mode": "formdata",
+                    "formdata": [
+                        {
+                            "key": "name",
+                            "value": "Test",
+                            "type": "default"
+                        },
+                        {
+                            "key": "age",
+                            "value": "30",
+                            "type": "default"
+                        },
+                        {
+                            "key": "image",
+                            "src": "c:\\Users\\ritur\\Pictures\\model3.jpg",
+                            "type": "file"
+                        },
+                        {
+                            "key": "songs",
+                            "src": "c:\\Users\\ritur\\Pictures\\model1.jpg",
+                            "type": "file"
+                        },
+                        {
+                            "key": "songs",
+                            "src": "c:\\Users\\ritur\\Pictures\\forest_2364458.png",
+                            "type": "file"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

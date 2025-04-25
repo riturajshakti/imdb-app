@@ -1,0 +1,34 @@
+{
+    "name": "IMDB App",
+    "id": "605d3f68-6f5b-4416-8a83-5e29cd37ba5b",
+    "_postman_variable_scope": "environment",
+    "_postman_exported_at": "2025-04-25T07:19:16.954Z",
+    "_postman_exported_using": "Thunder Client",
+    "values": [
+        {
+            "key": "local",
+            "value": "http://localhost:5000/api",
+            "enabled": true
+        },
+        {
+            "key": "live",
+            "value": "https://imdb-app.riturajshakti.workers.dev/api",
+            "enabled": true
+        },
+        {
+            "key": "token",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkxYTMzMzM0LWY1N2UtNDAzMy05MWZjLWM3ZTRhMjZhNjc4ZSJ9.s28dWsN2zpi1hqifLdPRaEAL0UItRXLN9g0IISyggdY",
+            "enabled": true
+        },
+        {
+            "key": "raj",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkxYTMzMzM0LWY1N2UtNDAzMy05MWZjLWM3ZTRhMjZhNjc4ZSJ9.s28dWsN2zpi1hqifLdPRaEAL0UItRXLN9g0IISyggdY",
+            "enabled": true
+        },
+        {
+            "key": "rituraj",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkYjY1Yzc1LTIwNzUtNDk4Mi1iNzljLTg3MTk4ODQ0ODhlZiJ9.Vn1D4gYrK1pufs1fF9oHzdzITOEHJa8NFxIGKJHDkoM",
+            "enabled": true
+        }
+    ]
+}

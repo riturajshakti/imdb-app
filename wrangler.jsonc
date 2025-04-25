@@ -1,0 +1,40 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "imdb-app",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-04-24",
+  // "compatibility_flags": [
+  //   "nodejs_compat"
+  // ],
+  "vars": {
+    "JWT_SECRET": "hgkjhy45988946v98b6uoi489"
+  },
+  // "kv_namespaces": [
+  //   {
+  //     "binding": "MY_KV_NAMESPACE",
+  //     "id": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+  //   }
+  // ],
+  "r2_buckets": [
+    {
+      "binding": "BUCKET",
+      "bucket_name": "imdb-app-bucket",
+      "preview_bucket_name": "imdb-app-bucket",
+    }
+  ],
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "imdb-app",
+      "database_id": "0d3d76bc-0d00-4646-94c5-137745149db2",
+      "preview_database_id": "0d3d76bc-0d00-4646-94c5-137745149db2"
+    }
+  ],
+  // "ai": {
+  //   "binding": "AI"
+  // },
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1
+  }
+}
