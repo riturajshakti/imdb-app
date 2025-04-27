@@ -1,6 +1,6 @@
 {
     "info": {
-        "_postman_id": "180dba38-13d5-4460-bc20-62462ed26667",
+        "_postman_id": "e9f64409-622e-4868-8206-e3c0314cf2fd",
         "name": "IMDB App",
         "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
         "description": ""
@@ -30,7 +30,7 @@
                                     "language": "json"
                                 }
                             },
-                            "raw": "{\n  \"name\": \"Raj\",\n  \"email\": \"raj@example.com\",\n  \"password\": \"123\",\n  \"gender\": \"male\"\n}"
+                            "raw": "{\n  \"name\": \"Akash\",\n  \"email\": \"akash@example.com\",\n  \"password\": \"123\",\n  \"gender\": \"male\"\n}"
                         }
                     }
                 },
@@ -94,12 +94,12 @@
                     "request": {
                         "method": "PATCH",
                         "url": {
-                            "raw": "{{local}}/users",
+                            "raw": "{{live}}/users",
                             "path": [
                                 "users"
                             ],
                             "host": [
-                                "{{local}}"
+                                "{{live}}"
                             ]
                         },
                         "body": {
@@ -109,7 +109,7 @@
                                     "language": "json"
                                 }
                             },
-                            "raw": "{\n  \"email\": \"rituraj@gmail.com\",\n  \"_password\": \"123\",\n  \"_oldPassword\": \"123\"\n}"
+                            "raw": "{\n  \"_email\": \"rituraj@gmail.com\",\n  \"password\": \"123\",\n  \"oldPassword\": \"123\"\n}"
                         },
                         "auth": {
                             "type": "bearer",
@@ -128,13 +128,13 @@
                     "request": {
                         "method": "PUT",
                         "url": {
-                            "raw": "{{local}}/users/photo",
+                            "raw": "{{live}}/users/photo",
                             "path": [
                                 "users",
                                 "photo"
                             ],
                             "host": [
-                                "{{local}}"
+                                "{{live}}"
                             ]
                         },
                         "body": {
@@ -164,13 +164,13 @@
                     "request": {
                         "method": "DELETE",
                         "url": {
-                            "raw": "{{local}}/users/photo",
+                            "raw": "{{live}}/users/photo",
                             "path": [
                                 "users",
                                 "photo"
                             ],
                             "host": [
-                                "{{local}}"
+                                "{{live}}"
                             ]
                         },
                         "auth": {
@@ -195,7 +195,7 @@
                     "request": {
                         "method": "GET",
                         "url": {
-                            "raw": "{{local}}/movies",
+                            "raw": "{{live}}/movies",
                             "query": [
                                 {
                                     "key": "limit",
@@ -209,7 +209,7 @@
                                 },
                                 {
                                     "key": "search",
-                                    "value": "2",
+                                    "value": "the",
                                     "disabled": true
                                 }
                             ],
@@ -218,7 +218,7 @@
                                 "movies"
                             ],
                             "host": [
-                                "{{local}}"
+                                "{{live}}"
                             ]
                         },
                         "auth": {
@@ -238,13 +238,13 @@
                     "request": {
                         "method": "GET",
                         "url": {
-                            "raw": "{{local}}/movies/0400171c-2ef9-4106-bfd7-bb1f9ee2c4ff",
+                            "raw": "{{live}}/movies/367ca96a-d324-4ba3-86ac-699f742a7683",
                             "path": [
                                 "movies",
-                                "0400171c-2ef9-4106-bfd7-bb1f9ee2c4ff"
+                                "367ca96a-d324-4ba3-86ac-699f742a7683"
                             ],
                             "host": [
-                                "{{local}}"
+                                "{{live}}"
                             ]
                         },
                         "auth": {
@@ -264,12 +264,12 @@
                     "request": {
                         "method": "POST",
                         "url": {
-                            "raw": "{{local}}/movies",
+                            "raw": "{{live}}/movies",
                             "path": [
                                 "movies"
                             ],
                             "host": [
-                                "{{local}}"
+                                "{{live}}"
                             ]
                         },
                         "body": {
@@ -279,7 +279,7 @@
                                     "language": "json"
                                 }
                             },
-                            "raw": "{\n  \"name\": \"The Mechanic\"\n}"
+                            "raw": "{\n  \"name\": \"Finding Nemo\"\n}"
                         },
                         "auth": {
                             "type": "bearer",
@@ -298,13 +298,13 @@
                     "request": {
                         "method": "PATCH",
                         "url": {
-                            "raw": "{{local}}/movies/1f73f197-71b3-4a52-9104-5ffc539c7de6",
+                            "raw": "{{live}}/movies/367ca96a-d324-4ba3-86ac-699f742a7683",
                             "path": [
                                 "movies",
-                                "1f73f197-71b3-4a52-9104-5ffc539c7de6"
+                                "367ca96a-d324-4ba3-86ac-699f742a7683"
                             ],
                             "host": [
-                                "{{local}}"
+                                "{{live}}"
                             ]
                         },
                         "body": {
@@ -314,7 +314,7 @@
                                     "language": "json"
                                 }
                             },
-                            "raw": "{\n  \"name\": \"The Mechanic 2\"\n}"
+                            "raw": "{\n  \"name\": \"The Finding Nemo\"\n}"
                         },
                         "auth": {
                             "type": "bearer",
@@ -333,13 +333,13 @@
                     "request": {
                         "method": "DELETE",
                         "url": {
-                            "raw": "{{local}}/movies/1f73f197-71b3-4a52-9104-5ffc539c7de6",
+                            "raw": "{{live}}/movies/1f73f197-71b3-4a52-9104-5ffc539c7de6",
                             "path": [
                                 "movies",
                                 "1f73f197-71b3-4a52-9104-5ffc539c7de6"
                             ],
                             "host": [
-                                "{{local}}"
+                                "{{live}}"
                             ]
                         },
                         "auth": {
@@ -359,14 +359,14 @@
                     "request": {
                         "method": "PUT",
                         "url": {
-                            "raw": "{{local}}/movies/0400171c-2ef9-4106-bfd7-bb1f9ee2c4ff/cover",
+                            "raw": "{{live}}/movies/367ca96a-d324-4ba3-86ac-699f742a7683/cover",
                             "path": [
                                 "movies",
-                                "0400171c-2ef9-4106-bfd7-bb1f9ee2c4ff",
+                                "367ca96a-d324-4ba3-86ac-699f742a7683",
                                 "cover"
                             ],
                             "host": [
-                                "{{local}}"
+                                "{{live}}"
                             ]
                         },
                         "body": {
@@ -374,7 +374,7 @@
                             "formdata": [
                                 {
                                     "key": "cover",
-                                    "src": "c:\\Users\\ritur\\Desktop\\the-mechanic-2.jpg",
+                                    "src": "c:\\Users\\ritur\\Desktop\\finding-nemo.jpeg",
                                     "type": "file"
                                 }
                             ]
@@ -396,14 +396,14 @@
                     "request": {
                         "method": "DELETE",
                         "url": {
-                            "raw": "{{local}}/movies/1f73f197-71b3-4a52-9104-5ffc539c7de6/cover",
+                            "raw": "{{live}}/movies/1f73f197-71b3-4a52-9104-5ffc539c7de6/cover",
                             "path": [
                                 "movies",
                                 "1f73f197-71b3-4a52-9104-5ffc539c7de6",
                                 "cover"
                             ],
                             "host": [
-                                "{{local}}"
+                                "{{live}}"
                             ]
                         },
                         "auth": {
@@ -428,7 +428,7 @@
                     "request": {
                         "method": "GET",
                         "url": {
-                            "raw": "{{local}}/ratings/0400171c-2ef9-4106-bfd7-bb1f9ee2c4ff",
+                            "raw": "{{live}}/ratings/367ca96a-d324-4ba3-86ac-699f742a7683",
                             "query": [
                                 {
                                     "key": "limit",
@@ -449,10 +449,10 @@
                             "variable": [],
                             "path": [
                                 "ratings",
-                                "0400171c-2ef9-4106-bfd7-bb1f9ee2c4ff"
+                                "367ca96a-d324-4ba3-86ac-699f742a7683"
                             ],
                             "host": [
-                                "{{local}}"
+                                "{{live}}"
                             ]
                         },
                         "auth": {
@@ -472,7 +472,7 @@
                     "request": {
                         "method": "POST",
                         "url": {
-                            "raw": "{{local}}/ratings",
+                            "raw": "{{live}}/ratings",
                             "query": [
                                 {
                                     "key": "limit",
@@ -495,7 +495,7 @@
                                 "ratings"
                             ],
                             "host": [
-                                "{{local}}"
+                                "{{live}}"
                             ]
                         },
                         "body": {
@@ -505,7 +505,7 @@
                                     "language": "json"
                                 }
                             },
-                            "raw": "{\n  \"movie\": \"1f73f197-71b3-4a52-9104-5ffc539c7de6\",\n  \"rating\": 5,\n  \"review\": \"Loved it\"\n}"
+                            "raw": "{\n  \"movie\": \"367ca96a-d324-4ba3-86ac-699f742a7683\",\n  \"rating\": 5,\n  \"review\": \"😀😀\"\n}"
                         },
                         "auth": {
                             "type": "bearer",
@@ -524,7 +524,7 @@
                     "request": {
                         "method": "PATCH",
                         "url": {
-                            "raw": "{{local}}/ratings/15c91bf3-6981-4ee9-9df2-b169e58568a7",
+                            "raw": "{{live}}/ratings/27168e16-f3de-49a4-81e3-217fd68feb8c",
                             "query": [
                                 {
                                     "key": "limit",
@@ -545,10 +545,10 @@
                             "variable": [],
                             "path": [
                                 "ratings",
-                                "15c91bf3-6981-4ee9-9df2-b169e58568a7"
+                                "27168e16-f3de-49a4-81e3-217fd68feb8c"
                             ],
                             "host": [
-                                "{{local}}"
+                                "{{live}}"
                             ]
                         },
                         "body": {
@@ -558,7 +558,7 @@
                                     "language": "json"
                                 }
                             },
-                            "raw": "{\n  \"rating\": 3,\n  \"review\": \"Very good\"\n}"
+                            "raw": "{\n  \"rating\": 4,\n  \"review\": \"Fine but not perfect\"\n}"
                         },
                         "auth": {
                             "type": "bearer",
@@ -577,31 +577,13 @@
                     "request": {
                         "method": "DELETE",
                         "url": {
-                            "raw": "{{local}}/ratings/15c91bf3-6981-4ee9-9df2-b169e58568a7",
-                            "query": [
-                                {
-                                    "key": "limit",
-                                    "value": "1",
-                                    "disabled": true
-                                },
-                                {
-                                    "key": "page",
-                                    "value": "3",
-                                    "disabled": true
-                                },
-                                {
-                                    "key": "rating",
-                                    "value": "2",
-                                    "disabled": true
-                                }
-                            ],
-                            "variable": [],
+                            "raw": "{{live}}/ratings/27168e16-f3de-49a4-81e3-217fd68feb8c",
                             "path": [
                                 "ratings",
-                                "15c91bf3-6981-4ee9-9df2-b169e58568a7"
+                                "27168e16-f3de-49a4-81e3-217fd68feb8c"
                             ],
                             "host": [
-                                "{{local}}"
+                                "{{live}}"
                             ]
                         },
                         "auth": {

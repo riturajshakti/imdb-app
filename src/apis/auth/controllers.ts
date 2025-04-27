@@ -34,6 +34,15 @@ async function postRegister(c: Context) {
 			gender: 'male' | 'female'
 		}
 		const { name, email, password, gender } = c.get('body') as Payload
+
+		const _user = await (constants.env.DB as D1Database)
+			.prepare('select * from users where email = ?')
+			.bind(email)
+			.run()
+    if(_user.results.length) {
+      return c.json({message: 'a user with this email already exists'}, 409)
+    }
+
 		const id = helpers.uuid()
 		const hash = await helpers.hash(password)
 		const createdAt = new Date().getTime()
