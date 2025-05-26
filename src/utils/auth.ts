@@ -12,13 +12,16 @@ async function authorize(c: Context, next: Next) {
       return c.json({ message: 'authorization failed' }, 401);
     }
     const token = authorization.substring('Bearer '.length);
-    const {id} = await helpers.verifyJwt(token) as {id: string}
+    const {id, hash} = await helpers.verifyJwt(token) as {id: string; hash: string}
     const user = await (constants.env.DB as D1Database)
 			.prepare('select * from users where id = ?')
 			.bind(id)
 			.run()
     if(!user.results.length) {
       return c.json({message: 'user not found'}, 401)
+    }
+    if(!(user.results[0] as any as User).password.endsWith(hash)) {
+      return c.json({message: 'authorization failed'}, 401)
     }
     c.set('user', user.results[0])
     return next()

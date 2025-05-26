@@ -14,10 +14,14 @@ async function postLogin(c: Context) {
 			.prepare('select * from users where email = ? and password = ?')
 			.bind(email, hash)
 			.run()
-    if(!user.results.length) {
-      return c.json({message: 'user not found'}, 401)
-    }
-		const token = await helpers.createJwt({id: user.results[0].id})
+		if (!user.results.length) {
+			return c.json({ message: 'user not found' }, 401)
+		}
+		const tokenData = {
+			id: user.results[0].id,
+			hash: (user.results[0] as any).password.slice(-10)
+		}
+		const token = await helpers.createJwt(tokenData)
 		return c.json({ token })
 	} catch (error) {
 		console.log(error)
@@ -39,9 +43,9 @@ async function postRegister(c: Context) {
 			.prepare('select * from users where email = ?')
 			.bind(email)
 			.run()
-    if(_user.results.length) {
-      return c.json({message: 'a user with this email already exists'}, 409)
-    }
+		if (_user.results.length) {
+			return c.json({ message: 'a user with this email already exists' }, 409)
+		}
 
 		const id = helpers.uuid()
 		const hash = await helpers.hash(password)

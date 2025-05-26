@@ -23,22 +23,45 @@ async function patchUser(c: Context) {
 
 		const user = c.get('user')
 		const { email, oldPassword, password } = c.get('body') as Payload
+		console.log(user)
 
-		let hash
+		const queries = []
+		let entries = []
+		if (email && email !== user.email) {
+			const data = await (constants.env.DB as D1Database)
+				.prepare(`SELECT * FROM users WHERE email = ?`)
+				.bind(email)
+				.run()
+			if (data.results.length) {
+				return c.json({ message: 'email already exist' }, 409)
+			}
+			queries.push('email = ?')
+			entries.push(email)
+		}
+
+		let token
 		if (password && oldPassword) {
 			let hash = await helpers.hash(oldPassword)
 			if (user.password !== hash) {
 				return c.json({ message: 'authorization failed' }, 401)
 			}
 			hash = await helpers.hash(password!)
+			queries.push('password = ?')
+			entries.push(hash)
+			const tokenData = {
+				id: user.id,
+				hash: hash.slice(-10)
+			}
+			token = await helpers.createJwt(tokenData)
 		}
-		hash ??= user.password
 
-		await (constants.env.DB as D1Database)
-			.prepare('update users set email = ?, password = ? where id = ?')
-			.bind(email, hash, user.id)
-			.run()
-		return c.json({ message: 'user updated successfully' })
+		if (queries.length) {
+			await (constants.env.DB as D1Database)
+				.prepare(`update users set ${queries.join(', ')} where id = ?`)
+				.bind(...entries, user.id)
+				.run()
+		}
+		return c.json({ message: 'user updated successfully', token })
 	} catch (error) {
 		console.log(error)
 		return c.json({ message: 'server error' }, 500)
